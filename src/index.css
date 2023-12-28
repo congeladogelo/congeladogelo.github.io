@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    color: var(--text-color);
+}
+
+html, body, #root {
+    background-color: var(--background-color);
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+p {
+    font-family: 'Noto Sans Mono', serif;
+    font-size: 15px;
+}
