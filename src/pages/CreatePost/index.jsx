@@ -48,14 +48,22 @@ export default function CreatePost() {
     );
   };
 
-  const getCategories = () => ((categories) ? categories
-    .trim().split(' ').map((category) => category.toLowerCase()) : []);
+  const getCategories = () => {
+    if (categories) {
+      return categories
+        .trim()
+        .split(' ')
+        .map((category) => category.toLowerCase())
+        .sort((categoryA, categoryB) => categoryA.localeCompare(categoryB));
+    }
+    return [];
+  };
 
   const downloadPost = () => {
     const date = getDate();
     const jsonString = `${JSON.stringify({
       title,
-      categories: getCategories().sort((categoryA, categoryB) => categoryA - categoryB),
+      categories: getCategories(),
       content,
       'created-at': date,
       'updated-at': date,
