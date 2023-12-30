@@ -8,6 +8,7 @@
 <body>
   <script>
     const path = window.location.pathname;
+    console.log(path);
     if (path[1] !== '#') {
       window.location.pathname.replace(`${'/#'}${path}`);
     }
