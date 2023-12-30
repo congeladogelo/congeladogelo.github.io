@@ -1,4 +1,5 @@
 #main {
+    box-sizing: border-box;
     margin: auto;
     padding: var(--page-padding);
     max-width: var(--page-max-width);
