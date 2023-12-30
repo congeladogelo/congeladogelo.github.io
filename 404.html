@@ -8,9 +8,9 @@
 <body>
   <script>
     console.log(`${location.protocol}${location.hostname}${location.pathname}`);
-    // if (location.pathname[1] !== '#') {
-    //   window.location.replace(`${location.protocol}${location.hostname}${'/#'}${location.pathname}`);
-    // }
+    if (location.pathname[1] !== '#') {
+      location.replace(`${location.protocol}${location.hostname}${'/#'}${location.pathname}`);
+    }
   </script>
 </body>
 </html>
