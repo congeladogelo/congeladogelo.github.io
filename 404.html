@@ -7,8 +7,8 @@
 </head>
 <body>
   <script>
-    const path = window.location.pathname;
-    console.log(`${path.protocol}${path.hostname}${path}`);
+    const location = window.location;
+    console.log(`${path.protocol}${path.hostname}${location.pathname}`);
     if (path[1] !== '#') {
       // window.location.pathname.replace(`${path.protocol}${path.hostname}${'/#'}${path}`);
     }
