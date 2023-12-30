@@ -21,7 +21,7 @@ export default function Main() {
           && (
           <PostList
             posts={posts}
-            showCategory
+            showCategories
           />
           )
       }

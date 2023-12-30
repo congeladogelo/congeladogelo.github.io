@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Main from './pages/Main';
-import CategoryPage from './pages/CategoryPage';
-import Post from './pages/Post';
+import CategoryPostPage from './pages/CategoryPostPage';
+import PostPage from './pages/PostPage';
 import CreatePost from './pages/CreatePost';
 
 export default function App() {
@@ -10,8 +10,8 @@ export default function App() {
     <div id="app">
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/:category" element={<CategoryPage />} />
-        <Route path="/:category/:post" element={<Post />} />
+        <Route path="/category/:category" element={<CategoryPostPage />} />
+        <Route path="/post/:post" element={<PostPage />} />
         <Route path="/create-post" element={<CreatePost />} />
       </Routes>
     </div>

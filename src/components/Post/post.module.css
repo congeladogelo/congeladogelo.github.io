@@ -1,10 +1,7 @@
 .post {
-    margin: auto;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: var(--page-padding);
-    max-width: var(--page-max-width);
+    gap: 40px;
 }
 
 .title, .paragraph {
@@ -23,4 +20,8 @@
 
 .date {
     color: var(--secondary-text-color);
+}
+
+.paragraph {
+    white-space: pre-line;
 }

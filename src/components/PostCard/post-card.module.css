@@ -1,5 +1,7 @@
 .post-card-button {
     border: 0;
+    margin: 0;
+    padding: 0;
     background-color: inherit;
     text-align: start;
     display: flex;
@@ -10,13 +12,6 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-.category {
-    background-color: var(--text-color);
-    color: var(--background-color);
-    width: fit-content;
-    padding: 2px 5px;
 }
 
 .post-card h3, .post-card p {

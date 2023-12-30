@@ -1,0 +1,13 @@
+.category {
+    background-color: var(--text-color);
+    color: var(--background-color);
+    width: fit-content;
+    padding: 2px 5px;
+}
+
+.category-button {
+    border: 0;
+    outline: 0;
+    margin: 0;
+    padding: 0;
+}

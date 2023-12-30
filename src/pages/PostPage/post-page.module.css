@@ -1,0 +1,8 @@
+#post-page {
+    margin: auto;
+    padding: var(--page-padding);
+    max-width: var(--page-max-width);
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}

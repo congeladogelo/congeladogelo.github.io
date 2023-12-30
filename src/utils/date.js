@@ -1,8 +1,8 @@
 export function getDate() {
-  return new Date();
+  return new Date().toString();
 }
 
-export function formatDateToPtBR(date) {
+export function formatDate(date, locale) {
   const options = {
     day: 'numeric',
     month: 'long',
@@ -11,5 +11,9 @@ export function formatDateToPtBR(date) {
     minute: '2-digit',
     hour12: false,
   };
-  return new Date(date).toLocaleDateString('pt-BR', options).replace(' às ', ', ');
+  let formattedDate = new Date(date).toLocaleDateString(locale, options);
+  if (locale === 'pt-BR') {
+    formattedDate = formattedDate.replace(' às ', ', ');
+  }
+  return formattedDate;
 }

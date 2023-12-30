@@ -3,16 +3,15 @@ import PropTypes from 'prop-types';
 import PostCard from '../PostCard';
 import styles from './post-list.module.css';
 
-export default function PostList({ posts, showCategory }) {
+export default function PostList({ posts, showCategories }) {
   return (
     <div>
       <div className={styles['post-card-list']}>
         {posts.map((post) => (
           <PostCard
-            key={`${post.category}-${post.postId}`}
-            category={post.category}
-            postId={post.postId}
-            showCategory={showCategory}
+            key={`${post}`}
+            postId={post}
+            showCategories={showCategories}
           />
         ))}
       </div>
@@ -21,15 +20,10 @@ export default function PostList({ posts, showCategory }) {
 }
 
 PostList.propTypes = {
-  posts: PropTypes.arrayOf(
-    PropTypes.shape({
-      category: PropTypes.string,
-      postId: PropTypes.string,
-    }),
-  ).isRequired,
-  showCategory: PropTypes.bool,
+  posts: PropTypes.arrayOf(PropTypes.string).isRequired,
+  showCategories: PropTypes.bool,
 };
 
 PostList.defaultProps = {
-  showCategory: false,
+  showCategories: false,
 };

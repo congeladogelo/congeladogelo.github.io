@@ -2,48 +2,47 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import styles from './post-card.module.css';
-import { formatDateToPtBR } from '../../utils/date';
-import { capitalize, kebabToSentence } from '../../utils/formatString';
+import CategoryTagList from '../CategoryTagList';
+import Date from '../Date';
 
-export default function PostCard({ category, postId, showCategory }) {
+export default function PostCard({ postId, showCategories }) {
   const navigate = useNavigate();
   const [post, setPost] = useState();
 
   useEffect(() => {
     const getPost = async () => {
-      const response = await fetch(`/posts/${category}/${postId}.post`);
+      const response = await fetch(`/posts/${postId}.post`);
       setPost(await response.json());
     };
     getPost();
-  }, []);
+  }, [postId]);
 
-  const redirectToPost = () => {
-    navigate(`/${category}/${postId}`);
+  const redirectToPostPage = () => {
+    navigate(`/post/${postId}`);
   };
 
   return (
-    (post) && (
-      <button className={styles['post-card-button']} type="button" onClick={redirectToPost}>
-        <div className={styles['post-card']}>
+    (post && typeof post === 'object') && (
+      <div className={styles['post-card']}>
+        <button className={styles['post-card-button']} type="button" onClick={redirectToPostPage}>
           <h3>{post.title}</h3>
-          {(showCategory) && (
-          <p className={styles.category}>
-            {capitalize(kebabToSentence(category))}
-          </p>
-          )}
-          <p>{formatDateToPtBR(post['created-at'])}</p>
-        </div>
-      </button>
+        </button>
+        {(showCategories) && (
+          <CategoryTagList categories={post.categories} />
+        )}
+        <button className={styles['post-card-button']} type="button" onClick={redirectToPostPage}>
+          <Date>{post['created-at']}</Date>
+        </button>
+      </div>
     )
   );
 }
 
 PostCard.propTypes = {
-  category: PropTypes.string.isRequired,
   postId: PropTypes.string.isRequired,
-  showCategory: PropTypes.bool,
+  showCategories: PropTypes.bool,
 };
 
 PostCard.defaultProps = {
-  showCategory: false,
+  showCategories: false,
 };
