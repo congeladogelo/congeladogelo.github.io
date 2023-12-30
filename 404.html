@@ -8,9 +8,10 @@
 <body>
   <script>
     const path = window.location.pathname;
-    console.log(path);
+    console.log(`${path.protocol}${path.hostname}${path}`);
     if (path[1] !== '#') {
-      window.location.pathname.replace(`${'/#'}${path}`);
+      l.protocol + '//' + l.hostname + 
+      window.location.pathname.replace(`${path.protocol}${path.hostname}${'/#'}${path}`);
     }
   </script>
 </body>
