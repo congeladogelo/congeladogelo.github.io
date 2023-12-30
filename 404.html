@@ -7,7 +7,10 @@
 </head>
 <body>
   <script>
-    console.log(window.location.pathname);
+    const path = window.location.pathname;
+    if (path[1] !== '#') {
+      window.location.pathname.replace(`${'/#'}${path}`);
+    }
   </script>
 </body>
 </html>
