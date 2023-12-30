@@ -3,6 +3,7 @@
     color: var(--background-color);
     width: fit-content;
     padding: 2px 5px;
+    text-align: start;
 }
 
 .category-button {
