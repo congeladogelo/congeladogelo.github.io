@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Post from '../../components/Post';
-import CategoryPosts from '../../components/CategoryPosts';
 import styles from './post-page.module.css';
+import getPostList from '../../utils/posts';
+import PostList from '../../components/PostList';
 
 export default function PostPage() {
   const params = useParams();
   const [post, setPost] = useState(null);
+  const [relatedPosts, setRelatedPosts] = useState([]);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -22,12 +24,31 @@ export default function PostPage() {
     fetchPost();
   }, [params.post]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [post]);
+
+  useEffect(() => {
+    const fetchRelatedPosts = async () => {
+      const postList = (await getPostList(post.categories, false))
+        .filter((postId) => postId !== params.post);
+      setRelatedPosts(postList);
+    };
+    if (post?.categories) {
+      fetchRelatedPosts();
+    }
+  }, [post]);
+
   return (
     (post) && (
       <div id={styles['post-page']}>
         <Post post={post} />
-        <hr />
-        <CategoryPosts categories={post.categories} exludedPosts={[params.post]} />
+        { (relatedPosts.length > 0) && (
+          <>
+            <hr />
+            <PostList posts={relatedPosts} />
+          </>
+        ) }
       </div>
     )
   );

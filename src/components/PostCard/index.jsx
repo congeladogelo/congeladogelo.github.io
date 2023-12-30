@@ -17,10 +17,6 @@ export default function PostCard({ postId, showCategories }) {
     getPost();
   }, [postId]);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0 });
-  }, [post]);
-
   const redirectToPostPage = () => {
     navigate(`/post/${postId}`);
   };
