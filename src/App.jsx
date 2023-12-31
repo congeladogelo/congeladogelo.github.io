@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Main from './pages/Main';
 import CategoryPostPage from './pages/CategoryPostPage';
@@ -6,13 +6,6 @@ import PostPage from './pages/PostPage';
 import CreatePost from './pages/CreatePost';
 
 export default function App() {
-  useEffect(() => {
-    const { hash } = window.location;
-    if (hash) {
-      window.history.replaceState(null, null, hash.replace('#', ''));
-    }
-  }, [window.location.hash]);
-
   return (
     <div id="app">
       <Routes>
