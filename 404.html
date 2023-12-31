@@ -11,7 +11,6 @@
     if (location.pathname.length > 1 && location.pathname[1] !== '#') {
       const path = location.pathname;
       location.replace(`${location.protocol}${location.hostname}${'/#'}${path}`);
-      window.history.replaceState(null, null, path);
     }
   </script>
 </body>
