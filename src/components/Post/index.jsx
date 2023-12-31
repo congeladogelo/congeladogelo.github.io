@@ -18,6 +18,9 @@ export default function Post({ post }) {
           if (block.type === 'image') {
             return <img key={key} className={styles.image} src={`/images/${block.content}`} alt={block.content} />;
           }
+          if (block.type === 'code') {
+            return <code className={styles.code} key={key}>{block.content}</code>;
+          }
           return null;
         })}
       </div>

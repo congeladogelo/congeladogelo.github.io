@@ -26,3 +26,11 @@
 .paragraph {
     white-space: pre-line;
 }
+
+.code {
+    white-space: pre-wrap;
+    background-color: var(--dark-gray);
+    color: var(--light-gray);
+    padding: 10px;
+    border-radius: 3px;
+}

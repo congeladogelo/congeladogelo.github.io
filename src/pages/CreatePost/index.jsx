@@ -117,6 +117,16 @@ export default function CreatePost() {
               );
             } else if (block.type === 'image') {
               inputElement = <input placeholder="image" onChange={(event) => updateContentBlock(index, event)} />;
+            } else if (block.type === 'code') {
+              inputElement = (
+                <textarea
+                  cols="30"
+                  rows="10"
+                  placeholder="code"
+                  value={block.content}
+                  onChange={(event) => updateContentBlock(index, event)}
+                />
+              );
             }
             return (
               <div className={styles['content-block']} key={`${block.type}-${index}`}>
@@ -133,6 +143,7 @@ export default function CreatePost() {
         <div id={styles['new-content']}>
           <button type="button" onClick={() => newContentBlock('text')}>New text</button>
           <button type="button" onClick={() => newContentBlock('image')}>New image</button>
+          <button type="button" onClick={() => newContentBlock('code')}>New code</button>
         </div>
       </section>
       <section>
