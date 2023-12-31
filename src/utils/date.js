@@ -1,5 +1,5 @@
 export function getDate() {
-  return new Date().toString();
+  return new Date();
 }
 
 export function formatDate(date, locale) {
