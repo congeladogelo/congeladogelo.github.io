@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gelo Congelado</title>
   <script>
-    const path = window.location.href;
-    console.log(path);
+    const href = window.location.href;
+    console.log(href);
+    let newHref = href.replace(/^(.*?:\/\/[^\/]+)?\//, "$1/#");
+    console.log(newHref);
     // if (path.length > 1 && path[1] !== '#') {
     //   location.replace(`${window.location.protocol}//${window.location.hostname}${'/#'}${window.location.pathname}`);
     // }
