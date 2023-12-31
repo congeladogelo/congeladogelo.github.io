@@ -9,9 +9,7 @@
     <title>Gelo Congelado</title>
     <script>
       const { hash } = window.location;
-      if (hash) {
-        window.history.replaceState(null, null, hash.replace('#', ''));
-      }
+      window.history.replaceState(null, null, hash.replace(/^#\//, ''));
     </script>
   </head>
   <body>
