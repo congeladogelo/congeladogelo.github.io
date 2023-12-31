@@ -8,8 +8,10 @@
 <body>
   <script>
     console.log(`${location.protocol}${location.hostname}${location.pathname}`);
-    if (location.pathname[1] !== '#') {
-      location.replace(`${location.protocol}${location.hostname}${'/#'}${location.pathname}`);
+    if (location.pathname.length > 1 && location.pathname[1] !== '#') {
+      const path = location.pathname;
+      location.replace(`${location.protocol}${location.hostname}${'/#'}${path}`);
+      window.history.replaceState(null, null, path);
     }
   </script>
 </body>
