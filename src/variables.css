@@ -2,6 +2,8 @@
     --background-color: rgb(250, 250, 250);
     --text-color: rgb(30, 30, 30);
     --secondary-text-color: rgb(140, 140, 140);
+    --dark-gray: rgb(41, 41, 41);
+    --light-gray: rgb(218, 218, 218);
     --page-padding: 60px;
     --page-max-width: 900px;
 }
