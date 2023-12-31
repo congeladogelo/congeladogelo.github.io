@@ -6,8 +6,7 @@
   <title>Gelo Congelado</title>
   <script>
     const { href } = window.location;
-    const newHref = href.replace(/^(.*?:\/\/[^\/]+)?\//, "$1/#");
-    location.replace(newHref);
+    location.replace(href.replace(/^(.*?:\/\/[^\/]+)?\//, "$1/#"));
   </script>
 </head>
 <body>
