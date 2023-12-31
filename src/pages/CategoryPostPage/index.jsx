@@ -18,15 +18,17 @@ export default function CategoryPage() {
   }, [params.category]);
 
   return (
-    (posts.length > 0) && (
-      <div id={styles['category-post-page']}>
-        <section>
-          <h1>{capitalize(kebabToSentence(params.category))}</h1>
-        </section>
-        <section>
-          <PostList posts={posts} />
-        </section>
-      </div>
-    )
+    <div id={styles['category-post-page']}>
+      { (posts.length > 0) && (
+        <>
+          <section>
+            <h1>{capitalize(kebabToSentence(params.category))}</h1>
+          </section>
+          <section>
+            <PostList posts={posts} />
+          </section>
+        </>
+      )}
+    </div>
   );
 }
